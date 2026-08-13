@@ -5,7 +5,7 @@ __pycache__/
 
 # Datasets
 *.csv
-
+src/credit_card_scorecard.txt
 
 # Environment files
 .env
