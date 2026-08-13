@@ -5,7 +5,7 @@ def get_connection():
     return psycopg2.connect(
         host="postgres",
         port=5432,
-        database="CUSTOMER",
+        database="customer",
         user="postgres",
         password="admin123"
     )
