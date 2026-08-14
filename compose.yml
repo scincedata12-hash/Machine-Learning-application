@@ -1,0 +1,44 @@
+services:
+
+
+  postgres:
+    image: "postgres:16"
+    container_name: "postgres-cont"
+    ports:
+      - "5432:5432"
+    networks:
+      - "mynet"
+    volumes:
+      - "my-postgre-vol:/var/lib/postgresql/data"
+    environment:
+      - POSTGRES_DB=customer
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=admin123
+
+
+
+  frontend:
+    build:
+      context: "."
+      dockerfile: Dockerfile
+    container_name: "frontend-cont"
+    ports:
+      - "8000:8000"
+    networks:
+      - "mynet"
+    depends_on:
+      - "postgres"
+
+
+
+
+
+networks:
+  mynet:
+    name: "mynet"
+    external: true
+volumes:
+  my-postgre-vol:
+    name: "my-postgre-vol"
+    external: true
+
