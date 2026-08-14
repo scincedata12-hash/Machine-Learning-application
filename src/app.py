@@ -3,7 +3,7 @@ from fastapi.templating import Jinja2Templates
 from src.database import insert_applicant
 from src.predication import applicant_info
 app = FastAPI()
-templates = Jinja2Templates(directory="FrountEnd")
+templates = Jinja2Templates(directory="frontend")
 
 import pandas as pd
 
