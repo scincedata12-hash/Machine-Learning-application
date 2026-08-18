@@ -3,11 +3,11 @@ import psycopg2
 
 def get_connection():
     return psycopg2.connect(
-        host="postgres",
+        host="/cloudsql/data-science-505904:us-central1:credit-assessment-dev-db",
         port=5432,
         database="customer",
         user="postgres",
-        password="admin123"
+        password="DataScience@1212"
     )
 
 
