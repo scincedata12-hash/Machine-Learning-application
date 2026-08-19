@@ -3,11 +3,11 @@ import psycopg2
 
 def get_connection():
     return psycopg2.connect(
-        host="postgres",
+        host="database-1.c5qagcekwsqw.eu-north-1.rds.amazonaws.com",
         port=5432,
         database="customer",
         user="postgres",
-        password="admin123"
+        password="DataScience1212"
     )
 
 
