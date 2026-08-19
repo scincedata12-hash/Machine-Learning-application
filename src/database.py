@@ -8,6 +8,7 @@ def get_connection():
         database="customer",
         user="postgres",
         password="DataScience1212"
+        sslmode="require"
     )
 
 
