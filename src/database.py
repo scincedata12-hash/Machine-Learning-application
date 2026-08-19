@@ -7,7 +7,7 @@ def get_connection():
         port=5432,
         database="customer",
         user="postgres",
-        password="DataScience1212"
+        password="DataScience1212",
         sslmode="require"
     )
 
