@@ -3,7 +3,7 @@ import psycopg2
 
 def get_connection():
     return psycopg2.connect(
-        host="credit-card-assesment.c5qagcekwsqw.eu-north-1.rds.amazonaws.com",
+        host="credit-card-assesment-db.c5qagcekwsqw.eu-north-1.rds.amazonaws.com",
         port=5432,
         database="customer",
         user="postgres",
