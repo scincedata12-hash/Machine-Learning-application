@@ -1,9 +1,10 @@
 import pickle
 import pandas as pd
 import numpy as np
+from src.database.py import insert_applicant
 
-predication_default = 0
-predication_default_proba = 0
+#predication_default = 0
+#predication_default_proba = 0
 with open("models/lg_model.pkl","rb") as file:
     lr_moodel = pickle.load(file)
 
@@ -40,6 +41,24 @@ def applicant_info(
     bureau_inquiries_6m,
     past_30dpd_12m,
     past_60dpd_12m):
+
+    applicant_id = insert_applicant(age,
+        marital_status,
+        dependents,
+        education_level,
+        employment_status,
+        years_employed,
+        annual_income,
+        housing_type,
+        years_at_residence,
+        bureau_score,
+        num_existing_cards,
+        total_existing_debt,
+        requested_credit_limit,
+        bureau_inquiries_6m,
+        past_30dpd_12m,
+        past_60dpd_12m
+    )
 
     
 
@@ -124,9 +143,9 @@ def applicant_info(
 
     print("MODEL OUTPUT:", predication)
 
-    global predication_default;
+    #global predication_default;
 
-    predication_default = int(predication[0])
+    #predication_default = int(predication[0])
 
 
 
