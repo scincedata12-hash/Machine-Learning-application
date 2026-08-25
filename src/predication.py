@@ -41,6 +41,8 @@ def applicant_info(
     past_30dpd_12m,
     past_60dpd_12m):
 
+    
+
     data_dict = {"Age":age,"Marital_Status":marital_status,
                  "Dependents":dependents,"Education_Level":education_level,
                  "Employment_Status":employment_status,
@@ -121,6 +123,8 @@ def applicant_info(
     predication = lr_moodel.predict(scaled_df)
 
     print("MODEL OUTPUT:", predication)
+
+    global predication_default;
 
     predication_default = int(predication[0])
 
