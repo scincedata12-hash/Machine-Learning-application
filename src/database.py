@@ -110,7 +110,6 @@ def insert_applicant(
         bureau_inquiries_6m,
         past_30dpd_12m,
         past_60dpd_12m,
-        predicted_default,
         applicant_information
     )
 
