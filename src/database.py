@@ -4,7 +4,7 @@ from src.predication import predication_default,predication_default_proba
 
 def get_connection():
     return psycopg2.connect(
-        host="credit-cardassesment.c70ec4qg6ieo.ap-south-1.rds.amazonaws.com",
+        host="credit-db.c70ec4qg6ieo.ap-south-1.rds.amazonaws.com",
         port=5432,
         database="customer",
         user="postgres",
