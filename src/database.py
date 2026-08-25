@@ -62,7 +62,6 @@ def insert_applicant(
     cursor.execute(query)
     connection.commit()
 
-    predicted_default = predication_default
 
 
     query = """
