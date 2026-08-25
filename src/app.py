@@ -33,7 +33,7 @@ def submit_application(request:Request,age:int=Form(...),marital_status: str = F
                        past_60dpd_12m: int = Form(0)
                        ):
 
-    applicant_id = insert_applicant(
+    applicant_information = applicant_info(
         age,
         marital_status,
         dependents,
@@ -52,7 +52,7 @@ def submit_application(request:Request,age:int=Form(...),marital_status: str = F
         past_60dpd_12m
     )
 
-    applicant_information = applicant_info(age,
+    applicant_id = insert_applicant(age,
         marital_status,
         dependents,
         education_level,
