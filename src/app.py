@@ -52,7 +52,7 @@ def submit_application(request:Request,age:int=Form(...),marital_status: str = F
         past_60dpd_12m
     )
 
-    applicant_id = insert_applicant(age,
+    '''applicant_id = insert_applicant(age,
         marital_status,
         dependents,
         education_level,
@@ -68,7 +68,7 @@ def submit_application(request:Request,age:int=Form(...),marital_status: str = F
         bureau_inquiries_6m,
         past_30dpd_12m,
         past_60dpd_12m
-    )
+    )'''
 
     if applicant_information == 0:
         return templates.TemplateResponse(
