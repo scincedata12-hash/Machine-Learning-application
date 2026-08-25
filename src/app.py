@@ -67,7 +67,8 @@ def submit_application(request:Request,age:int=Form(...),marital_status: str = F
         requested_credit_limit,
         bureau_inquiries_6m,
         past_30dpd_12m,
-        past_60dpd_12m
+        past_60dpd_12m,
+        applicant_information
     )
 
     if applicant_information == 0:
