@@ -1,5 +1,4 @@
 import psycopg2
-from src.predication import predication_default,predication_default_proba
 
 
 def get_connection():
