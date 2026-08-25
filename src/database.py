@@ -31,7 +31,8 @@ def insert_applicant(
     requested_credit_limit,
     bureau_inquiries_6m,
     past_30dpd_12m,
-    past_60dpd_12m
+    past_60dpd_12m,
+    applicant_information
 ):
     connection = get_connection()
     cursor = connection.cursor()
@@ -111,7 +112,8 @@ def insert_applicant(
         bureau_inquiries_6m,
         past_30dpd_12m,
         past_60dpd_12m,
-        predicted_default
+        predicted_default,
+        applicant_information
     )
 
     cursor.execute(query, values)
