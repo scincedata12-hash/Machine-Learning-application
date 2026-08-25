@@ -1,4 +1,5 @@
 import psycopg2
+from src.predication import predication_default,predication_default_proba
 
 
 def get_connection():
@@ -10,6 +11,8 @@ def get_connection():
         password="DataScience1212",
         sslmode="require"
     )
+
+
 
 
 def insert_applicant(
@@ -33,6 +36,35 @@ def insert_applicant(
     connection = get_connection()
     cursor = connection.cursor()
 
+
+    query = """CREATE TABLE IF NOT EXISTS applicants (
+    applicant_id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    age INTEGER,
+    marital_status VARCHAR(20),
+    dependents INTEGER,
+    education_level VARCHAR(50),
+    employment_status VARCHAR(50),
+    years_employed INTEGER,
+    annual_income NUMERIC(15,2),
+    housing_type VARCHAR(30),
+    years_at_residence INTEGER,
+    bureau_score INTEGER,
+    num_existing_cards INTEGER,
+    total_existing_debt NUMERIC(15,2),
+    requested_credit_limit NUMERIC(15,2),
+    bureau_inquiries_6m INTEGER,
+    past_30dpd_12m INTEGER,
+    past_60dpd_12m INTEGER,
+    predicted_default Integer
+    );
+"""
+
+    cursor.execute(query)
+    connection.commit()
+
+    predicted_default = predication_default
+
+
     query = """
         INSERT INTO applicants (
             age,
@@ -50,14 +82,17 @@ def insert_applicant(
             requested_credit_limit,
             bureau_inquiries_6m,
             past_30dpd_12m,
-            past_60dpd_12m
+            past_60dpd_12m,
+            predicted_default
         )
         VALUES (
             %s, %s, %s, %s, %s, %s, %s, %s,
-            %s, %s, %s, %s, %s, %s, %s, %s
+            %s, %s, %s, %s, %s, %s, %s, %s,%s
         )
         RETURNING applicant_id;
     """
+
+
 
     values = (
         age,
@@ -75,7 +110,8 @@ def insert_applicant(
         requested_credit_limit,
         bureau_inquiries_6m,
         past_30dpd_12m,
-        past_60dpd_12m
+        past_60dpd_12m,
+        predicted_default
     )
 
     cursor.execute(query, values)

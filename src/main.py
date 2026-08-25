@@ -332,6 +332,7 @@ class CREDITSCORECARD:
         plt.xlabel("False positive rate")
         plt.ylabel("True positive rate")
         plt.show()
+        plt.savefig("")
 
 
         auc = roc_auc_score( y_test,y_pred_test)

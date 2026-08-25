@@ -2,7 +2,8 @@ import pickle
 import pandas as pd
 import numpy as np
 
-
+predication_default = 0
+predication_default_proba = 0
 with open("models/lg_model.pkl","rb") as file:
     lr_moodel = pickle.load(file)
 
@@ -121,6 +122,11 @@ def applicant_info(
 
     print("MODEL OUTPUT:", predication)
 
+    predication_default = int(predication[0])
+
+
+
     return int(predication[0])
+
 
 
