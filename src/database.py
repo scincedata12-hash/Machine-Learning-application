@@ -1,14 +1,16 @@
 import psycopg2
+import os
+from dotenv import load_dotenv
 
 
 def get_connection():
     return psycopg2.connect(
-        host="credit-db.c70ec4qg6ieo.ap-south-1.rds.amazonaws.com",
-        port=5432,
-        database="customer",
-        user="postgres",
-        password="DataScience1212",
-        sslmode="require"
+        host=os.getenv("DB_HOST"),
+        port=os.getenv("DB_PORT"),
+        database=os.getenv("DB_NAME"),
+        user=os.getenv("DB_USER"),
+        password=os.getenv("DB_PASSWORD"),
+        sslmode=os.getenv("DB_SSLMODE")
     )
 
 
